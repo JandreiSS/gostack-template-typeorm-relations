@@ -33,7 +33,7 @@ class CreateOrderService {
   public async execute({ customer_id, products }: IRequest): Promise<Order> {
     const customer = await this.customersRepository.findById(customer_id);
 
-    if (!customer_id) {
+    if (!customer) {
       throw new AppError('Customer does not exists');
     };
 
